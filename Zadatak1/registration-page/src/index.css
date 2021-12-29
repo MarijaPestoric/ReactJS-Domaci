@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +6,60 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #16697a;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1{
+  text-align: center;
+  font-family: "Pacifico", cursive;
+  color: #ffa62b;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 6rem;
+}
+form{
+  font-family: "Poppins", sans-serif;
+  background-color: #ede7e3;
+  padding-top: 30px !important;
+  margin-top: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.row{
+  max-width: 60vw;
+  width: 70vw;
+  margin: 0 auto !important;
+}
+.success{
+  border: 1px solid green;
+}
+.error{
+  border: 1px solid red;
+}
+button{
+  margin:2rem;
+  background-color: #ffa62b !important;
+  height: 50px !important;
+  width: 130px !important;
+  align-content: center;
+}
+button:hover{
+  background-color: #ede7e3 !important;
+  border: 2px solid #ffa62b;
+  color: #ffa62b;
+}
+input{ 
+  border-bottom: 1px solid #489fb5 !important;
+}
+
+.prefix{
+  color: #489fb5;
+  cursor: default;
+}
+.prefix:hover{
+  color: #ffa62b;
 }
