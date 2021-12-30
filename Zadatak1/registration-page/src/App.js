@@ -43,7 +43,6 @@ class App extends React.Component {
     e.preventDefault()
     let passwordRegex = new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})")
     let emailRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
-    console.log(emailRegex);
     let usernameRegex = /^.{6,12}$/;
     let { firstName, lastName, username, email, password, confirmPassword } = this.state;
     if (firstName === "") {
