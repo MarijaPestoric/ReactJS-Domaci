@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap');
+@import url('react-notifications/lib/notifications.css');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -19,7 +20,7 @@ h1{
   font-family: "Pacifico", cursive;
   font-size: 5rem;
   position: relative;
-  top: 50px;
+  top: 48px;
   color: #ffa62b;
   padding: 0;
 }
@@ -27,8 +28,7 @@ form{
   font-family: "Poppins", sans-serif;
   background-color: #ede7e3;
   padding-top: 3rem;
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;}
 .main-container{
   margin-top: 4rem;
   position: relative;
@@ -36,11 +36,8 @@ form{
 .row{
   max-width: 60vw;
 }
-.success{
-  border: 1px solid green;
-}
 .error{
-  border-bottom: 3px solid red !important;
+  background-image: linear-gradient(#fb637549, #ede7e3) !important;
 }
 button{
   margin:2rem;
@@ -56,8 +53,9 @@ button:hover{
 }
 input{ 
   border-bottom: 1px solid #489fb5 !important;
+  margin-left: 36px !important;
 }
-.input-field input[type=text]:focus {
+.input-field input[type=text]:focus, .input-field input[type=password]:focus {
   border-bottom: 1px solid #ffa62b !important;
   box-shadow: 0 1px 0 0 #ffa62b !important;
 }
