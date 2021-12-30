@@ -39,14 +39,14 @@ form{
 .error{
   background-image: linear-gradient(#fb637549, #ede7e3) !important;
 }
-button{
+.waves-effect{
   margin:2rem;
   background-color: #ffa62b !important;
   height: 50px !important;
   width: 130px !important;
   align-content: center;
 }
-button:hover{
+.waves-effect:hover{
   background-color: #ede7e3 !important;
   border: 2px solid #ffa62b;
   color: #ffa62b;

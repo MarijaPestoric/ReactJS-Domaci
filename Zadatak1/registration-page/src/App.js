@@ -13,27 +13,21 @@ class App extends React.Component {
       }
     ],
     firstName: {
-      name: "",
       isValid: ""
     },
     lastName: {
-      name: "",
       isValid: ""
     },
     username: {
-      name: "",
       isValid: ""
     },
     email: {
-      name: "",
       isValid: ""
     },
     password: {
-      name: "",
       isValid: ""
     },
     confirmPassword: {
-      name: "",
       isValid: ""
     },
     submitted: false,
@@ -42,27 +36,28 @@ class App extends React.Component {
 
   handleChange = (e) => {
     let name = e.target.name;
-    this.setState({ [name]: e.target.value })
+    this.setState({ [name]: e.target.value})
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
     let passwordRegex = new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})")
     let emailRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+    console.log(emailRegex);
     let usernameRegex = /^.{6,12}$/;
     let { firstName, lastName, username, email, password, confirmPassword } = this.state;
-    if (firstName.name === "") {
+    if (firstName === "") {
       NotificationManager.warning('Input field first name is empty.', 'Please fill all inputs!', 5000);
       this.setState({ firstName: { isValid: "error" } })
-    } if (lastName.name === "") {
+    } if (lastName === "") {
       NotificationManager.warning('Input field last name is empty.', 'Please fill all inputs!', 5000);
       this.setState({ lastName: { isValid: "error" } })
     } if (!usernameRegex.test(username)) {
       NotificationManager.warning('Input field username should have minimum 6 and maximum 12 characters.', 'Please fill all inputs!', 5000);
       this.setState({ username: { isValid: "error" } })
-    } if (email.name === "" || !emailRegex.test(email)) {
+    } if (!emailRegex.test(email)) {
       NotificationManager.warning('Invalid email address.', 'Please enter valid email address!', 5000);
-      this.setState({ email: { isValid: "error" } })
+      this.setState({ email: { isValid: "error" }})
     } if (!passwordRegex.test(password)) {
       NotificationManager.warning('Password is not strong enough!', 'Your password should have at least 8 characters, of which at least one uppercase, one lowercase letter, number and special character should be included.', 5000);
       this.setState({ password: { isValid: "error" } })
@@ -72,7 +67,7 @@ class App extends React.Component {
         confirmPassword: { isValid: "error" },
         password: { isValid: "error" }
       })
-    } if (lastName.name !== "" && firstName.name !== "" && username.name !== "" && email.name !== "" && emailRegex.test(email) && passwordRegex.test(password) && password === confirmPassword) {
+    } if (lastName !== "" && firstName !== "" && username !== "" && usernameRegex.test(username) && email !== "" && emailRegex.test(email) && passwordRegex.test(password) && password === confirmPassword) {
       let newUser = {
         usersId: this.state.users.length + 1,
         firstName: this.state.firstName,
@@ -89,7 +84,8 @@ class App extends React.Component {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            Accept: 'application/json',
+            redirect: 'follow'
           },
           body: JSON.stringify(this.state.users)
         })
