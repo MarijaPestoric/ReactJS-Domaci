@@ -44,12 +44,14 @@ class App extends React.Component {
     let passwordRegex = new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})")
     let emailRegex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
     let usernameRegex = /^.{6,12}$/;
+    let inputRegex = /^[a-zA-Z\s]*$/;
     let { firstName, lastName, username, email, password, confirmPassword } = this.state;
-    if (firstName === "") {
-      NotificationManager.warning('Input field first name is empty.', 'Please fill all inputs!', 5000);
+    console.log(firstName, lastName, username);
+    if (!inputRegex.test(firstName)) {
+      NotificationManager.warning('Input field first name is empty or contains something other than a letter', 'Please fill all inputs!', 5000);
       this.setState({ firstName: { isValid: "error" } })
-    } if (lastName === "") {
-      NotificationManager.warning('Input field last name is empty.', 'Please fill all inputs!', 5000);
+    } if (!inputRegex.test(lastName)) {
+      NotificationManager.warning('Input field last name is empty or contains something other than a letter', 'Please fill all inputs!', 5000);
       this.setState({ lastName: { isValid: "error" } })
     } if (!usernameRegex.test(username)) {
       NotificationManager.warning('Input field username should have minimum 6 and maximum 12 characters.', 'Please fill all inputs!', 5000);
@@ -98,6 +100,9 @@ class App extends React.Component {
         .catch(err => console.log("Error! " + err))
       console.log("SUBMITTED");
     } else {
+      NotificationManager.error('Registration failed! Click for more details.', 'ERROR!', 5000, () => {
+        alert('Make sure you entered informations correctly.');
+      });
       console.log("Not submitted!");
     }
   }
