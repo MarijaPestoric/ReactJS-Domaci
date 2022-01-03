@@ -11,7 +11,6 @@ function Header() {
                 Add
             </a>
         </NavLink>
-
     </div>);
 }
 

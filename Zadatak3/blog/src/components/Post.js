@@ -3,7 +3,7 @@ import React from 'react';
 function Post() {
     return ( 
         <div>
-            Hello
+            Post description
         </div>
      );
 }

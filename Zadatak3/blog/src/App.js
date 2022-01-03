@@ -17,6 +17,9 @@ function App() {
         <Routes>
           <Route path="/add" element={<AddPost />}></Route>
         </Routes>
+        <Routes>
+          <Route path="/post/:id" element={<Post />}></Route>
+        </Routes>
       </BrowserRouter>
     </div>
   );
