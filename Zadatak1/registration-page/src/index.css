@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap');
+@import url('react-notifications/lib/notifications.css');
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #16697a;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1{
+  text-align: left;
+  font-family: "Pacifico", cursive;
+  font-size: 5rem;
+  position: relative;
+  top: 48px;
+  color: #ffa62b;
+  padding: 0;
+  text-shadow: 1px 1px 2px #489fb5;
+}
+form{
+  font-family: "Poppins", sans-serif;
+  background-color: #ede7e3;
+  padding-top: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+.main-container{
+  margin-top: 4rem;
+  position: relative;
+}
+.row{
+  max-width: 60vw;
+}
+.error{
+  background-image: linear-gradient(#fb637549, #ede7e3) !important;
+}
+.waves-effect{
+  margin:2rem;
+  background-color: #ffa62b !important;
+  height: 50px !important;
+  width: 130px !important;
+  align-content: center;
+}
+.waves-effect:hover{
+  background-color: #ede7e3 !important;
+  border: 2px solid #ffa62b;
+  color: #ffa62b;
+}
+input{ 
+  border-bottom: 1px solid #489fb5 !important;
+  margin-left: 36px !important;
+}
+.input-field input[type=text]:focus, .input-field input[type=password]:focus {
+  border-bottom: 1px solid #ffa62b !important;
+  box-shadow: 0 1px 0 0 #ffa62b !important;
+}
+.prefix{
+  color: #489fb5;
+  cursor: default;
+}
+.prefix:hover{
+  color: #ffa62b;
+}
