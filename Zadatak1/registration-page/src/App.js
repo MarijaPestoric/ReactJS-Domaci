@@ -46,7 +46,6 @@ class App extends React.Component {
     let usernameRegex = /^.{6,12}$/;
     let inputRegex = /^[a-zA-Z\s]*$/;
     let { firstName, lastName, username, email, password, confirmPassword } = this.state;
-    console.log(firstName, lastName, username);
     if (!inputRegex.test(firstName)) {
       NotificationManager.warning('Input field first name is empty or contains something other than a letter', 'Please fill all inputs!', 5000);
       this.setState({ firstName: { isValid: "error" } })
