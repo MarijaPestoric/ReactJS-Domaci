@@ -1,7 +1,6 @@
-import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home'
-import Post from './components/Post'
+import Posts from './components/Posts'
 import Header from './components/Header'
 import AddPost from './components/AddPost';
 
@@ -18,7 +17,7 @@ function App() {
           <Route path="/add" element={<AddPost />}></Route>
         </Routes>
         <Routes>
-          <Route path="/post/:id" element={<Post />}></Route>
+          <Route path="/post/:id" element={<Posts />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
