@@ -87,7 +87,7 @@ class App extends React.Component {
             Accept: 'application/json',
             redirect: 'follow'
           },
-          body: JSON.stringify(this.state.users)
+          body: JSON.stringify(users)
         })
         .then(response => {
           let blobUrl = response.headers.get(

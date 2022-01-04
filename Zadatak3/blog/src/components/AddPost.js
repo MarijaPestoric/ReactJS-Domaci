@@ -16,7 +16,7 @@ class AddPost extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let { title, author, description } = this.state;
-        if(title.length > 20 || author.length > 20 || description.length<250){
+        if(title.length > 20 || author.length > 20 || description.length>250){
             console.log("Please make sure you don't go above limit");
         } else {
             let newPost = {
@@ -29,18 +29,13 @@ class AddPost extends React.Component {
             let posts = this.state.posts;
             console.log(posts, newPost);
             posts.push(newPost)
-            this.setState((prevState) => ({
-                posts: {
-                    ...prevState.posts,
-                    posts: posts
-                }
-            }));
+            this.setState({posts});
             fetch("https://jsonblob.com/api/jsonBlob/927649810056757248", {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(this.state.posts)
+                body: JSON.stringify(posts)
             })
                 .then((response) => response.json())
                 .then((data) => console.log(data))
