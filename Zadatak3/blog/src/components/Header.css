@@ -1,0 +1,13 @@
+.nav-wrapper{
+    display: flex !important;
+    justify-content: space-between !important;
+    background-color: #f0efeb !important;
+}
+.btn{
+    background-color: #22223b !important;
+}
+.brand-logo{
+    color: #4a4e69 !important;
+    font-family: cursive;
+    margin-left: 10px;
+}
