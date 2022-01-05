@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 @import url('react-notifications/lib/notifications.css');
 body {
   margin: 0;
@@ -17,38 +18,42 @@ code {
 
 h1{
   text-align: left;
-  font-family: "Pacifico", cursive;
+  font-family: 'Poppins', sans-serif;
   font-size: 5rem;
+  font-weight: 600;
   position: relative;
-  bottom: 30px;
+  bottom: 40px;
   color: #ffa62b;
   margin-bottom: 0 !important;
   text-shadow: 1px 1px 2px #489fb5;
 }
 form{
   font-family: "Poppins", sans-serif;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  
 }
 .main-container{
   position: relative;
   z-index: 2;
+  padding-bottom: 2rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .row{
-  max-width: 80%;
+  max-width: 70%;
   background-color: #ede7e3;
   padding-top: 0 !important;
-  justify-content: center !important;
 }
 
 .error{
  border-bottom: 1px solid red !important;
 }
 .waves-effect{
-  margin:2rem;
   margin-top: 5rem;
   background-color: #ffa62b !important;
   height: 50px !important;
   width: 130px !important;
+  margin: 0 auto !important;
   align-content: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
@@ -74,6 +79,36 @@ input{
 }
 .illustration{
   max-width: 100%;
-  height: 20rem;
+  max-height: 25rem;
   transform: scaleX(-1);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .row{
+      max-width: 90%;
+    }
+    .illustration{
+      margin-left: 4rem;
+    }
+    .waves-effect{
+      position: relative;
+      bottom: 4rem;
+      left: 3rem;
+    }
+    
+}
+
+@media screen and (max-width: 426px) {
+  h1{
+    font-size: 3rem;
+    bottom: 20px;
+  }
+  .illustration{
+    margin-left: 0;
+  }
+  .waves-effect{
+    top: 1rem;
+  }
 }
