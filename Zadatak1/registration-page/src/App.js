@@ -1,4 +1,5 @@
 import React from 'react';
+import illustration from './human.png'
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 class App extends React.Component {
   state = {
@@ -12,31 +13,20 @@ class App extends React.Component {
         password: "Anica!123"
       }
     ],
-    firstName: {
-      isValid: ""
-    },
-    lastName: {
-      isValid: ""
-    },
-    username: {
-      isValid: ""
-    },
-    email: {
-      isValid: ""
-    },
-    password: {
-      isValid: ""
-    },
-    confirmPassword: {
-      isValid: ""
-    },
-    submitted: false,
-    usersId: 1
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   }
-
+  isFormFilled = () => {
+    const { firstName, lastName, username, email, password, confirmPassword } = this.state
+    return firstName && lastName && email && username && password && confirmPassword
+  }
   handleChange = (e) => {
     let name = e.target.name;
-    this.setState({ [name]: e.target.value})
+    this.setState({ [name]: e.target.value })
   }
 
   handleSubmit = (e) => {
@@ -47,17 +37,17 @@ class App extends React.Component {
     let inputRegex = /^[a-zA-Z\s]*$/;
     let { firstName, lastName, username, email, password, confirmPassword } = this.state;
     if (!inputRegex.test(firstName)) {
-      NotificationManager.warning('Input field first name is empty or contains something other than a letter', 'Please fill all inputs!', 5000);
+      NotificationManager.warning("Input field first name shouldn't be empty or contain something other than a letter", 'Please fill all inputs!', 5000);
       this.setState({ firstName: { isValid: "error" } })
     } if (!inputRegex.test(lastName)) {
-      NotificationManager.warning('Input field last name is empty or contains something other than a letter', 'Please fill all inputs!', 5000);
+      NotificationManager.warning("Input field last name shouldn't be empty or contain something other than a letter", 'Please fill all inputs!', 5000);
       this.setState({ lastName: { isValid: "error" } })
     } if (!usernameRegex.test(username)) {
       NotificationManager.warning('Input field username should have minimum 6 and maximum 12 characters.', 'Please fill all inputs!', 5000);
       this.setState({ username: { isValid: "error" } })
     } if (!emailRegex.test(email)) {
       NotificationManager.warning('Invalid email address.', 'Please enter valid email address!', 5000);
-      this.setState({ email: { isValid: "error" }})
+      this.setState({ email: { isValid: "error" } })
     } if (!passwordRegex.test(password)) {
       NotificationManager.warning('Password is not strong enough!', 'Your password should have at least 8 characters, of which at least one uppercase, one lowercase letter, number and special character should be included.', 5000);
       this.setState({ password: { isValid: "error" } })
@@ -68,6 +58,7 @@ class App extends React.Component {
         password: { isValid: "error" }
       })
     } if (lastName !== "" && firstName !== "" && username !== "" && usernameRegex.test(username) && email !== "" && emailRegex.test(email) && passwordRegex.test(password) && password === confirmPassword) {
+      this.setState({ isFormFilled: true })
       let newUser = {
         usersId: this.state.users.length + 1,
         firstName: this.state.firstName,
@@ -97,7 +88,7 @@ class App extends React.Component {
           console.log(blobUrl);
         })
         .catch(err => console.log("Error! " + err))
-      console.log("SUBMITTED");
+      console.log("Submitted");
     } else {
       NotificationManager.error('Registration failed! Click for more details.', 'ERROR!', 5000, () => {
         alert('Make sure you entered informations correctly.');
@@ -106,19 +97,20 @@ class App extends React.Component {
     }
   }
   render() {
+    const isEnabled = this.isFormFilled()
     const { firstName, lastName, username, email, password, confirmPassword } = this.state;
     return (
       <div className="App">
         <div className="row main-container">
-          <h1>Create Account.</h1>
+        <h1 className='animate__animated animate__fadeInDown'>Create Account.</h1>
           <form method='POST' onSubmit={this.handleSubmit}>
-            <div className='row col s12'>
-              <div className="input-field col s12 l6">
+            <div className='row col l8'>
+              <div className="input-field col s12 l12">
                 <i className="material-icons prefix">person</i>
                 <input id="first_name" name='firstName' type="text" className={firstName.isValid} onChange={this.handleChange} />
                 <label htmlFor="first_name">First Name </label>
               </div>
-              <div className="input-field col s12 l6">
+              <div className="input-field col s12 l12">
                 <i className="material-icons prefix">person</i>
                 <input id="last_name" name='lastName' type="text" className={lastName.isValid} onChange={this.handleChange} />
                 <label htmlFor="last_name">Last Name</label>
@@ -133,20 +125,25 @@ class App extends React.Component {
                 <input id="email" name='email' type="text" className={email.isValid} onChange={this.handleChange} />
                 <label htmlFor="email">Email</label>
               </div>
-              <div className="input-field col s12 l6">
+              <div className="input-field col s12 l12">
                 <i className="material-icons prefix">lock</i>
                 <input id="password" name='password' type="password" className={password.isValid} onChange={this.handleChange} />
                 <label htmlFor="password">Password</label>
               </div>
-              <div className="input-field col s12 l6">
+              <div className="input-field col s12 l12">
                 <i className="material-icons prefix">lock_outline</i>
                 <input id="confirm-password" name='confirmPassword' type="password" className={confirmPassword.isValid} onChange={this.handleChange} />
                 <label htmlFor="confirm-password">Confirm password</label>
               </div>
             </div>
-            <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+            <div className='row col l4'>
+              <img className="illustration" src={illustration} alt='BLa'/>
+            <button disabled={!isEnabled} className="btn waves-effect waves-light" type="submit" name="action">Submit
               <i className="material-icons right">send</i>
             </button>
+
+            </div>
+
           </form>
         </div>
         <NotificationContainer />
