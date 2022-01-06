@@ -1,5 +1,6 @@
 import React from 'react';
 import "./AddPost.css"
+import {Link} from "react-router-dom"
 class AddPost extends React.Component {
     state = {
         posts: [
@@ -49,8 +50,8 @@ class AddPost extends React.Component {
     render() {
         return <div>
             <form method='POST' className='form' onSubmit={this.handleSubmit}>
-                <div className="row">
-                    <h2>Add Post</h2>
+                <div className="row add-post-container animate__animated animate__fadeInDown">
+                    <h2 className='form-heading'>Add Post</h2>
                     <div className="input-field col s12">
                         <i className="material-icons prefix">location_on</i>
                         <input id="title" name='title' type="text" value={this.state.posts.title} onChange={this.handleChange} />
@@ -70,7 +71,7 @@ class AddPost extends React.Component {
                         <textarea id="description" name='description' value={this.state.posts.description} className="materialize-textarea" onChange={this.handleChange}></textarea>
                         <label htmlFor="description">Say something about this destination...</label>
                     </div>
-                    <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <button className="btn waves-effect waves-light post-btn" type="submit" name="action">Submit
                         <i className="material-icons right">send</i>
                     </button>
                 </div>

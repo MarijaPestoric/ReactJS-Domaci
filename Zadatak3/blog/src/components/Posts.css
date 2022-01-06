@@ -2,35 +2,66 @@
 
 body{
     font-family: "Poppins";
+    background-color: #fafafa !important;
 }
 h2{
     text-align: center;
+    color: #353535 ;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    text-shadow: 1px 2px 2px #353535;
+    font-size: 3rem;
+    text-transform:uppercase;
+    letter-spacing: 1rem;
 }
 .card{
-    background-color:#22223b;
-    color: whitesmoke;
+    background-color: #fafafa;
+    color: #353535;
+    margin: .5rem;
+    text-align: center;
+    box-shadow: #75bf8f65 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.card:hover{
+    transform: scale(1.02);
+    
 }
 .card-title{
     font-weight: 500 !important;
     font-size: 2rem !important;
     margin-left: 5px;
+    position: relative;
+    color: #309158;
 }
 .card-content{
-    padding: 10px 0 !important;
-    color: #c9ada7;
+    padding: 0 !important;
     margin-left: 5px;
-    font-size: 14px;
+    font-size: 1rem;
+    position: relative;
+    bottom: 1rem;
 }
 .card-image img{
     height: 200px !important;
     width: 100% !important;
 }
+.card-action{
+    border-top: none !important;
+}
 .card-action a{
-    color: whitesmoke !important;
+    color: #353535 !important;
     text-align: center !important;
     margin-right: 0 !important;
+    padding: 2rem 0;
+    font-size: 1rem;
+}
+.author{
+    color: #c66309;
+}
+hr{
+    width: 10rem;
+    position: relative;
+    bottom: 1.5rem;
 }
 
 .card-action:hover{
-    background-color: #4a4e69 !important;
+    background-color: white !important;
 }
