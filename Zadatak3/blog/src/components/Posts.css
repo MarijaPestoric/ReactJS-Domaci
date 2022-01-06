@@ -52,14 +52,17 @@ h2{
     margin-right: 0 !important;
     padding: 2rem 0;
     font-size: 1rem;
+    font-weight: 600;
 }
 .author{
-    color: #c66309;
+    color: #c66409bb;
+    font-weight: 600;
 }
 hr{
     width: 10rem;
     position: relative;
     bottom: 1.5rem;
+    background-color: #309158;
 }
 
 .card-action:hover{

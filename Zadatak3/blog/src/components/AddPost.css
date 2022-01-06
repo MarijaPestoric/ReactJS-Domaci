@@ -30,7 +30,7 @@ label.active{
     color: #309158;
 }
 .post-btn:hover{
-    background-color: #c66309 ;
+    background-color: #98d1ca ;
     color: #f5f5f5;
 }
 .post-btn:active{
@@ -40,9 +40,53 @@ label.active{
 .add-post-container{
     margin-top: 2rem;
 }
- 
+textarea{
+    color: #f5f5f5;
+}
+.img-container{
+    display: block;
+    position: relative;
+    max-width: 100%;
+}
+.illustration {
+    width: 12rem;
+    position: absolute;
+    top: -3.4rem;
+    left: 36rem;
+}
+.edit{
+    width: 4rem;
+}
+@media screen  and (max-width: 1024px){
+    form{
+        max-width: 60% !important;
+    }
+    .illustration{
+        left: 28rem;
+    }
+}
 @media screen and (max-width: 768px) {
     form{
         max-width: 90% !important;
     }
+    .illustration{
+        left: 32rem;
+    }
 }
+
+@media screen and (max-width: 426px) {
+    .illustration{
+        width: 9rem;
+        top: -1.4rem;
+        left: 10rem;
+    }
+    .form-heading{
+        font-size: 2rem;
+        letter-spacing: .2rem;
+    }
+    .edit{
+        width: 2rem;
+    }
+}
+
+

@@ -1,6 +1,8 @@
 import React from 'react';
 import "./AddPost.css"
-import {Link} from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom";
+import Illustration from "../sitting.png"
+import Edit from "../edit.png"
 class AddPost extends React.Component {
     state = {
         posts: [
@@ -21,7 +23,7 @@ class AddPost extends React.Component {
             console.log("Please make sure you don't go above limit");
         } else {
             let newPost = {
-                postId: this.state.posts.length + 1,
+                postId: Math.random(),
                 title: this.state.title,
                 author: this.state.author,
                 imageURL: this.state.imageURL,
@@ -39,7 +41,9 @@ class AddPost extends React.Component {
                 body: JSON.stringify(posts)
             })
                 .then((response) => response.json())
-                .then((data) => console.log(data))
+                .then((data) => {
+                    console.log(data)
+                    })
                 .catch((error) => console.log(error))
         }
     }
@@ -51,7 +55,7 @@ class AddPost extends React.Component {
         return <div>
             <form method='POST' className='form' onSubmit={this.handleSubmit}>
                 <div className="row add-post-container animate__animated animate__fadeInDown">
-                    <h2 className='form-heading'>Add Post</h2>
+                    <h2 className='form-heading'>Add Post<img className='edit' src={Edit} alt='edit' /></h2>
                     <div className="input-field col s12">
                         <i className="material-icons prefix">location_on</i>
                         <input id="title" name='title' type="text" value={this.state.posts.title} onChange={this.handleChange} />
@@ -64,7 +68,7 @@ class AddPost extends React.Component {
                     </div>
                     <div className="input-field col s12">
                         <i className="material-icons prefix">attach_file</i>
-                        <label htmlFor="image-url">Image url</label>
+                        <label htmlFor="image-url">Image URL</label>
                         <input id="image-url" name='imageURL' type="text" value={this.state.posts.imageURL} onChange={this.handleChange} />
                     </div>
                     <div className="input-field col s12">
@@ -74,6 +78,9 @@ class AddPost extends React.Component {
                     <button className="btn waves-effect waves-light post-btn" type="submit" name="action">Submit
                         <i className="material-icons right">send</i>
                     </button>
+                    <div className='img-container'>
+                        <img className="illustration" src={Illustration} alt='illustration'></img>
+                    </div>
                 </div>
             </form>
         </div>;
