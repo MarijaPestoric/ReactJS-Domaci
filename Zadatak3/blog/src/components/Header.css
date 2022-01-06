@@ -1,13 +1,30 @@
 .nav-wrapper{
     display: flex !important;
+    padding: 0 !important;
     justify-content: space-between !important;
-    background-color: #f0efeb !important;
+    align-items: center;
+    background-color: #fafafa !important;
+    height: 5rem !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
-.btn{
-    background-color: #22223b !important;
+.add-btn{
+    background-color: #309158 !important;
+    font-size: 1.2rem;
+    height: 3rem;
+    padding-top: .4rem;
+    padding-right: 1.5rem;
 }
 .brand-logo{
-    color: #4a4e69 !important;
     font-family: cursive;
     margin-left: 10px;
+    max-width: 100%;
+    color: #ccd5ae !important;
 }
+.logo{
+    width: 13rem !important;
+    position: relative;
+    height: 5rem;
+    bottom: 2.4rem;
+}
+
+

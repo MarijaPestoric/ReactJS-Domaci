@@ -106,6 +106,7 @@ input{
   h1{
     font-size: 3rem;
     bottom: 20px;
+    text-shadow: 2px 2px 2px #16697ab6;
   }
   .illustration{
     max-width: 16rem;

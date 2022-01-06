@@ -10,9 +10,10 @@ function Posts(props) {
                     </div>
                     <span className="card-title">{props.postInfo.title}</span>
                     <div className="card-content">
-                        <p>Author: {props.postInfo.author}</p>
+                        <p className='author'>Author: <em>{props.postInfo.author}</em></p>
                     </div>
                     <div className="card-action">
+                        <hr></hr>
                         <a href="#">Read more</a>
                     </div>
                 </div>
