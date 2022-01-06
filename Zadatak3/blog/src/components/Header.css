@@ -4,7 +4,7 @@
     justify-content: space-between !important;
     align-items: center;
     background-color: #fafafa !important;
-    height: 5rem !important;
+    height: 6rem !important;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 .add-btn{
@@ -23,8 +23,8 @@
 .logo{
     width: 13rem !important;
     position: relative;
-    height: 5rem;
-    bottom: 2.4rem;
+    height: 6rem;
+    bottom:3rem;
 }
 
 

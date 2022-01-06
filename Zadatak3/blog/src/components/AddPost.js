@@ -1,6 +1,8 @@
 import React from 'react';
 import "./AddPost.css"
 import {Link} from "react-router-dom"
+import Illustration from "../sitting.png"
+import Edit from "../edit.png"
 class AddPost extends React.Component {
     state = {
         posts: [
@@ -51,7 +53,7 @@ class AddPost extends React.Component {
         return <div>
             <form method='POST' className='form' onSubmit={this.handleSubmit}>
                 <div className="row add-post-container animate__animated animate__fadeInDown">
-                    <h2 className='form-heading'>Add Post</h2>
+                    <h2 className='form-heading'>Add Post<img className='edit' src={Edit} alt='edit' /></h2>
                     <div className="input-field col s12">
                         <i className="material-icons prefix">location_on</i>
                         <input id="title" name='title' type="text" value={this.state.posts.title} onChange={this.handleChange} />
@@ -74,6 +76,9 @@ class AddPost extends React.Component {
                     <button className="btn waves-effect waves-light post-btn" type="submit" name="action">Submit
                         <i className="material-icons right">send</i>
                     </button>
+                    <div className='img-container'>
+                        <img className="illustration" src={Illustration} alt='illustration'></img>
+                    </div>
                 </div>
             </form>
         </div>;
