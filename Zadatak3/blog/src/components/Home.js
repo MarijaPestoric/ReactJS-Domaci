@@ -13,6 +13,7 @@ class Home extends React.Component {
                 return res.json()
             })
             .then((data) => {
+                console.log(data);
                 let allPosts = data;
                 console.log(allPosts);
                 this.setState({ allPosts })

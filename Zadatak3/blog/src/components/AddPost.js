@@ -1,8 +1,11 @@
 import React from 'react';
 import "./AddPost.css"
-import { Navigate, useNavigate } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Illustration from "../sitting.png"
 import Edit from "../edit.png"
+
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 class AddPost extends React.Component {
     state = {
         posts: [
@@ -13,23 +16,26 @@ class AddPost extends React.Component {
                 imageURL: "https://www.portalmladi.com/wp-content/uploads/2015/10/bora-bora-odmor.png",
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat. Eget est lorem ipsum dolor sit amet consectetur adipiscing elit. '
             }
-        ]
+        ],
+        loader: false
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const { history } = this.props;
         let { title, author, description } = this.state;
         if(title.length > 20 || author.length > 20 || description.length>250){
-            console.log("Please make sure you don't go above limit");
+            NotificationManager.warning('Length of input fields for author and title should not go above 20 characters! Description field should not contain more then 250 characterd!', 'Error!', 3000);        
         } else {
+            NotificationManager.success('New post created!', 'Bravo!');
             let newPost = {
-                postId: Math.random(),
+                postId: this.state.posts.length +1,
                 title: this.state.title,
                 author: this.state.author,
                 imageURL: this.state.imageURL,
                 description: this.state.description
             }
-            let posts = this.state.posts;
+             let posts = this.state.posts;
             console.log(posts, newPost);
             posts.push(newPost)
             this.setState({posts});
@@ -40,10 +46,10 @@ class AddPost extends React.Component {
                 },
                 body: JSON.stringify(posts)
             })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data)
-                    })
+                .then((response) => {
+                    response.json();
+                    history.push('/')
+            })
                 .catch((error) => console.log(error))
         }
     }
@@ -83,6 +89,7 @@ class AddPost extends React.Component {
                     </div>
                 </div>
             </form>
+            <NotificationContainer/>
         </div>;
     }
 }
