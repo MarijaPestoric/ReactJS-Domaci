@@ -7,20 +7,13 @@ import AddPost from './components/AddPost';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
-      <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-        </Routes>
-        <Routes>
-          <Route path="/add" element={<AddPost />}></Route>
-        </Routes>
-        <Routes>
-          <Route path="/posts/:id" element={<Posts />}></Route>
-        </Routes>
-      </BrowserRouter>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/add" component={AddPost}></Route>
     </div>
+    </BrowserRouter>
   );
 }
 

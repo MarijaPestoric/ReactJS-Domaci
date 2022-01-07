@@ -1,9 +1,9 @@
 import React from 'react';
-import './Posts.css'
+import './Posts.css';
+import { Link } from 'react-router-dom';
 function Posts(props) {
     return (
         <div class="col s12 m6 l3">
-
                 <div className="card">
                     <div className="card-image">
                         <img src={props.postInfo.imageURL} alt='image' />
