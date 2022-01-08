@@ -8,3 +8,23 @@ body {
   background: #010135;
   color: #fff;
 }
+
+.react-confirm-alert-overlay {
+  background-color: #ef2323e0 !important;
+
+}
+
+.react-confirm-alert-button-group button
+{
+  background-color: #12123a !important;
+}
+
+.react-confirm-alert-body 
+{
+  background-color: rgb(228, 228, 228) !important;
+}
+
+.react-confirm-alert-body h1
+{
+  color: red;
+}

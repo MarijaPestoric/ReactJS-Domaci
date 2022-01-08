@@ -3,14 +3,17 @@ import { useState, useEffect, resetTurn } from 'react';
 import SingleCard from './components/SingleCard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
 
 const cardImages = [
   {"src": "/images/java.png", matched: false},
-  {"src": "/images/js.png", matched: false},
+  {"src": "/images/javascript.png", matched: false},
   {"src": "/images/python.png", matched: false},
   {"src": "/images/ruby.png", matched: false},
-  {"src": "/images/swift.png", matched: false},
-  {"src": "/images/ts.png", matched: false}
+  {"src": "/images/php.png", matched: false},
+  {"src": "/images/typescript.png", matched: false}
 ]
 
 function App() {
@@ -33,10 +36,25 @@ function App() {
       setTurns(0)
   }
 
-  if(turns === 5)
-  {
-    toast('Game over!')
-  }
+  useEffect(() => {
+    if(turns === 5)
+    {
+      confirmAlert({
+        title: 'Game Over!',
+        message: 'Do you want to play again?',
+        buttons: [
+          {
+            label: 'Yes',
+            onClick: () => shuffleCards()
+          },
+          {
+            label: 'No',
+            onClick: () => {}
+          }
+        ]
+      });
+    }
+  }, [turns])
   //choice
 
   const handleChoice = (card) => {
@@ -82,7 +100,7 @@ useEffect(() => {
    <div className="App">
      <ToastContainer />
     <h1>Memory Brain 🧠 </h1>
-    <button onClick={shuffleCards}>Try Again ✌  </button>
+    <button onClick={shuffleCards}>Try Again? </button>
 
     <div className ="card-grid">
       {cards.map(card => (
