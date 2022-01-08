@@ -39,8 +39,8 @@ class AddPost extends React.Component {
             console.log(posts, newPost);
             posts.push(newPost)
             this.setState({posts});
-            fetch("https://jsonblob.com/api/jsonBlob/927649810056757248", {
-                method: 'PUT',
+            fetch("https://jsonblob.com/api/jsonBlob", {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
