@@ -1,9 +1,11 @@
 import React from 'react';
 import './Posts.css';
-import { Link } from 'react-router-dom';
+import  {Link, Route} from 'react-router-dom';
+import Post from './Post'
+
 function Posts(props) {
     return (
-        <div class="col s12 m6 l3">
+        <div className="col s12 m6 l3">
                 <div className="card">
                     <div className="card-image">
                         <img src={props.postInfo.imageURL} alt='image' />
@@ -14,7 +16,8 @@ function Posts(props) {
                     </div>
                     <div className="card-action">
                         <hr></hr>
-                        <a href="#">Read more</a>
+                        <Link to={`/post/${props.postInfo.postId}`}>Read more</Link>
+        
                     </div>
                 </div>
 </div>
