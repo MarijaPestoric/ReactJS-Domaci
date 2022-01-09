@@ -19,7 +19,7 @@ h2{
     color: #353535;
     margin: .5rem;
     text-align: center;
-    box-shadow: #75bf8f65 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    box-shadow: #969b9865 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 .card:hover{
     transform: scale(1.02);
