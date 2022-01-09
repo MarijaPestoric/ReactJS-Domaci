@@ -72,12 +72,27 @@ input{
   border-bottom: 1px solid #ffa62b !important;
   box-shadow: 0 1px 0 0 #ffa62b !important;
 }
+.email-field, .password-field{
+  margin-top: 0 !important;
+}
 .prefix{
   color: #489fb5;
   cursor: default;
 }
 .prefix:hover{
   color: #ffa62b;
+}
+.rules{
+  position: relative;
+  bottom: 1rem;
+  margin-left: 2.5rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color:#ffa72bdc;
+  font-size: 11px;
+}
+label{
+  font-size: 14px !important;
 }
 .illustration{
   max-width: 100%;
@@ -98,6 +113,9 @@ input{
       position: relative;
       bottom: 4rem;
       left: 3rem;
+    }
+    .rules{
+      font-size: 8px;
     }
     
 }

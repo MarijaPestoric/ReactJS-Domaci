@@ -102,7 +102,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="row main-container">
-        <h1 className='animate__animated animate__fadeInDown'>Create Account.</h1>
+          <h1 className='animate__animated animate__fadeInDown'>Create Account.</h1>
           <form method='POST' onSubmit={this.handleSubmit}>
             <div className='row col l8'>
               <div className="input-field col s12 l12">
@@ -119,28 +119,30 @@ class App extends React.Component {
                 <i className="material-icons prefix">account_circle</i>
                 <input id="icon_prefix" name='username' type="text" className={username.isValid} onChange={this.handleChange} />
                 <label htmlFor="icon_prefix">Username</label>
+                <p className='rules'>minimum 6 and maximum 12 characters</p>
               </div>
-              <div className="input-field col s12">
+              <div className="input-field col s12 email-field">
                 <i className="material-icons prefix">email</i>
                 <input id="email" name='email' type="text" className={email.isValid} onChange={this.handleChange} />
                 <label htmlFor="email">Email</label>
               </div>
-              <div className="input-field col s12 l12">
+              <div className="input-field col s12 l12 ">
                 <i className="material-icons prefix">lock</i>
                 <input id="password" name='password' type="password" className={password.isValid} onChange={this.handleChange} />
                 <label htmlFor="password">Password</label>
+                <p className='rules'>at least 8 characters, one uppercase, one lowercase, number and special character</p>
               </div>
-              <div className="input-field col s12 l12">
+              <div className="input-field col s12 l12 password-field">
                 <i className="material-icons prefix">lock_outline</i>
                 <input id="confirm-password" name='confirmPassword' type="password" className={confirmPassword.isValid} onChange={this.handleChange} />
                 <label htmlFor="confirm-password">Confirm password</label>
               </div>
             </div>
             <div className='row col l4'>
-              <img className="illustration" src={illustration} alt='BLa'/>
-            <button disabled={!isEnabled} className="btn waves-effect waves-light" type="submit" name="action">Submit
-              <i className="material-icons right">send</i>
-            </button>
+              <img className="illustration" src={illustration} alt='BLa' />
+              <button disabled={!isEnabled} className="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i className="material-icons right">send</i>
+              </button>
 
             </div>
 
