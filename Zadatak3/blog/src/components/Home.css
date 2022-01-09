@@ -1,0 +1,10 @@
+.progress{
+    width: 40%;
+    margin: 0 auto;
+    position: relative;
+    top: 10rem;
+}
+.progress .indeterminate {
+    background-color: #309158;
+
+}

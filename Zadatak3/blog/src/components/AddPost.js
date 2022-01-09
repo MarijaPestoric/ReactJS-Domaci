@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import Illustration from "../sitting.png"
 import Edit from "../edit.png"
 
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 class AddPost extends React.Component {
     state = {
@@ -17,30 +17,33 @@ class AddPost extends React.Component {
                 description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat. Eget est lorem ipsum dolor sit amet consectetur adipiscing elit. '
             }
         ],
-        loader: false
+        loading: false
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         const { history } = this.props;
-        let { title, author, description } = this.state;
-        if(title.length > 20 || author.length > 20 || description.length>250){
-            NotificationManager.warning('Length of input fields for author and title should not go above 20 characters! Description field should not contain more then 250 characterd!', 'Error!', 3000);        
+        console.log(this.state.posts);
+        let { title, author, description, imageURL } = this.state;
+        if (!title || !author || !imageURL || !description) {
+            NotificationManager.warning('You must fill in all the fields!', 'Please check data you entered.', 6000);
+        } else if (title.length > 20 || author.length > 20 || description.length > 250) {
+            NotificationManager.warning('Length of input fields for author and title should not go above 20 characters! Description field should not contain more then 250 characters!', 'Please check data you entered.', 6000);
+            NotificationManager.error('Failed to create new post.', 'ERROR!', 3000)
         } else {
-            NotificationManager.success('New post created!', 'Bravo!');
             let newPost = {
-                postId: this.state.posts.length +1,
+                postId: this.state.posts.length + 1,
                 title: this.state.title,
                 author: this.state.author,
                 imageURL: this.state.imageURL,
                 description: this.state.description
             }
-             let posts = this.state.posts;
-            console.log(posts, newPost);
+            let posts = this.state.posts;
+            console.log(posts);
             posts.push(newPost)
-            this.setState({posts});
-            fetch("https://jsonblob.com/api/jsonBlob", {
-                method: 'POST',
+            this.setState({ posts });
+            fetch("https://jsonblob.com/api/jsonBlob/927649810056757248", {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -48,16 +51,27 @@ class AddPost extends React.Component {
             })
                 .then((response) => {
                     response.json();
+                    NotificationManager.success('New post created!', 'Success!');
+                    this.setState({loading: true})
                     history.push('/')
-            })
+                })
                 .catch((error) => console.log(error))
         }
     }
     handleChange = (e) => {
         let name = e.target.name;
-        this.setState({ [name]: e.target.value })
+        this.setState({
+            [name]: e.target.value
+        })
     }
     render() {
+        if(this.state.loading === true){
+            return(
+                <div className="progress">
+                    <div className="indeterminate"></div>
+                </div>
+            )
+        }
         return <div>
             <form method='POST' className='form' onSubmit={this.handleSubmit}>
                 <div className="row add-post-container animate__animated animate__fadeInDown">
@@ -89,7 +103,7 @@ class AddPost extends React.Component {
                     </div>
                 </div>
             </form>
-            <NotificationContainer/>
+            <NotificationContainer />
         </div>;
     }
 }

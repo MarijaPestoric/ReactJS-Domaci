@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Posts from "./Posts";
+import "./Post.css";
 import "./Home.css";
 
 class Home extends React.Component {
@@ -29,13 +30,11 @@ class Home extends React.Component {
 
     console.log(this.state)
     return (
-      <div class="row">
-        <h2>All Posts</h2>
-        <div>{this.state.post.title}</div>
-        <div>{this.state.post.description}</div>
-        <img src={this.state.post.imageURL} alt='image' />
-        <div>{this.state.post.author}</div>
-
+      <div className="row single-post">
+        <div className="post-title">{this.state.post.title}</div>
+        <img className="post-image"src={this.state.post.imageURL} alt='image' />
+        <div className="post-description">{this.state.post.description}</div>
+        <div className="post-author">Author: <em>{this.state.post.author}</em> </div>
       </div>
     );
   }
