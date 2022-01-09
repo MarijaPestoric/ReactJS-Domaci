@@ -5,7 +5,8 @@ import "./Home.css"
 
 class Home extends React.Component {
     state = {
-        allPosts: []
+        allPosts: [],
+        loading: true
     }
     componentDidMount() {
         fetch("https://jsonblob.com/api/jsonBlob/927649810056757248")
@@ -16,7 +17,7 @@ class Home extends React.Component {
                 console.log(data);
                 let allPosts = data;
                 console.log(allPosts);
-                this.setState({ allPosts })
+                this.setState({ allPosts: allPosts, loading: false })
             })
             .catch((err) => {
                 console.log("Error while fetching" + err);
@@ -29,11 +30,18 @@ class Home extends React.Component {
         })
     }
     render() {
-        return (
-            <div class="row">
-                <h2>All Posts</h2>
-                    {this.postsToShow()}
+        if (this.state.loading === true) {
+            return (
+                <div className="progress">
+                    <div className="indeterminate"></div>
                 </div>
+            )
+        }
+        return (
+            <div className="row">
+                <h2>All Posts</h2>
+                {this.postsToShow()}
+            </div>
         )
     }
 }
