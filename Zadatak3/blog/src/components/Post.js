@@ -8,6 +8,7 @@ class Home extends React.Component {
   state = {
     allPosts: [],
     post: {},
+    loading: true
   };
   componentDidMount() {
     fetch("https://jsonblob.com/api/jsonBlob/927649810056757248")
@@ -20,18 +21,25 @@ class Home extends React.Component {
         let post = allPosts.find(
             ({ postId }) => postId === parseInt(this.props.match.params.id)
           );
-        this.setState({ post });
+        this.setState({ post, loading: false });
       })
       .catch((err) => {
         console.log("Error while fetching" + err);
       });
   }
   render() {
-
+    
+      if (this.state.loading === true) {
+          return (
+              <div className="progress">
+                  <div className="indeterminate"></div>
+              </div>
+          )
+      }
     console.log(this.state)
     return (
       <div className="row single-post">
-        <div className="post-title">{this.state.post.title}</div>
+        <h2 className="post-title">{this.state.post.title}</h2>
         <img className="post-image"src={this.state.post.imageURL} alt='image' />
         <div className="post-description">{this.state.post.description}</div>
         <div className="post-author">Author: <em>{this.state.post.author}</em> </div>
