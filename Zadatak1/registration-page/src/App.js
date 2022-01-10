@@ -102,7 +102,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="row main-container">
-          <h1 className='animate__animated animate__fadeInDown'>Create Account.</h1>
+          <h1 className='form-title animate__animated animate__fadeInDown'>Create Account.</h1>
           <form method='POST' onSubmit={this.handleSubmit}>
             <div className='row col l8'>
               <div className="input-field col s12 l12">

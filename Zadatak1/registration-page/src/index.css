@@ -16,7 +16,7 @@ code {
     monospace;
 }
 
-h1{
+.form-title{
   text-align: left;
   font-family: 'Poppins', sans-serif;
   font-size: 5rem;
@@ -121,7 +121,7 @@ label{
 }
 
 @media screen and (max-width: 426px) {
-  h1{
+  .form-title{
     font-size: 3rem;
     bottom: 20px;
     text-shadow: 2px 2px 2px #16697ab6;
