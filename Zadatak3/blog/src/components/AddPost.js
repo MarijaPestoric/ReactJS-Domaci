@@ -9,17 +9,25 @@ import 'react-notifications/lib/notifications.css';
 class AddPost extends React.Component {
     state = {
         posts: [
-            {
-                postId: 1,
-                title: "Bora Bora",
-                author: 'Marija',
-                imageURL: "https://www.portalmladi.com/wp-content/uploads/2015/10/bora-bora-odmor.png",
-                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat. Eget est lorem ipsum dolor sit amet consectetur adipiscing elit. '
-            }
+            
         ],
         loading: false
     }
-
+    componentDidMount() {
+        fetch("https://jsonblob.com/api/jsonBlob/927649810056757248")
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                console.log(data);
+                let allPosts = data;
+                console.log(allPosts);
+                this.setState({ posts: allPosts})
+            })
+            .catch((err) => {
+                console.log("Error while fetching" + err);
+            })
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const { history } = this.props;
@@ -47,7 +55,7 @@ class AddPost extends React.Component {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(posts)
+                body: JSON.stringify([...posts], newPost)
             })
                 .then((response) => {
                     response.json();
