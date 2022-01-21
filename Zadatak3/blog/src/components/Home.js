@@ -38,7 +38,7 @@ class Home extends React.Component {
             )
         }
         return (
-            <div className="row">
+            <div className="row posts-container">
                 <h2>All Posts</h2>
                 {this.postsToShow()}
             </div>
